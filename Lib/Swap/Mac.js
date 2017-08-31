@@ -11,6 +11,7 @@ class  SwapMac extends SwapAbstract {
   extractScript( homeDir )
   {
     let content = this.getScriptContent() + `
+echo "open -a \${APP_PATH}/\${RUNNER}"
 open -a "\${APP_PATH}/\${RUNNER}"`,
         scriptPath = join( homeDir, "swap.sh" );
     fs.writeFileSync( scriptPath, content, "utf8" );
