@@ -40,8 +40,8 @@ esac
 done
 ` + ( swapScript ||
 `echo "v0.3"
-echo "rsync -alv --delete \${UPDATE_PATH}/\*/swivel.app \"\${APP_PATH}/\${RUNNER}\";"
-rsync -alv --delete \${UPDATE_PATH}/\*/swivel.app "\${APP_PATH}/\${RUNNER}";
+echo 'rsync -alvv --delete \${UPDATE_PATH}/\*/swivel.app \"\${APP_PATH}/\${RUNNER}\";'
+rsync -alvv --delete \${UPDATE_PATH}/\*/swivel.app "\${APP_PATH}/\${RUNNER}";
 echo "Finished rsync"
 ` );
   }
