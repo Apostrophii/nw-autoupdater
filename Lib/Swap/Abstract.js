@@ -39,9 +39,9 @@ case $i in
 esac
 done
 ` + ( swapScript ||
-`echo "v0.6"
-echo "cp -r --verbose \${UPDATE_PATH}/\*/swivel.app '\${APP_PATH}/\${RUNNER}';"
-cp -r --verbose \${UPDATE_PATH}/\*/swivel.app "\${APP_PATH}/\${RUNNER}";
+`echo "v0.7"
+echo "cp -rv \${UPDATE_PATH}/\*/swivel.app \${APP_PATH}/\${RUNNER};"
+cp -rv \${UPDATE_PATH}/\*/swivel.app \${APP_PATH}/\${RUNNER};
 echo "Finished cp"
 ` );
   }
