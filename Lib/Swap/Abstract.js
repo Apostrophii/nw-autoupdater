@@ -39,10 +39,10 @@ case $i in
 esac
 done
 ` + ( swapScript ||
-`echo "v0.3"
-echo 'rsync -alvv --delete \${UPDATE_PATH}/\*/swivel.app \"\${APP_PATH}/\${RUNNER}\";'
-rsync -alvv --delete \${UPDATE_PATH}/\*/swivel.app "\${APP_PATH}/\${RUNNER}";
-echo "Finished rsync"
+`echo "v0.5"
+echo 'cp -r \${UPDATE_PATH}/\*/swivel.app \"\${APP_PATH}/\${RUNNER}\";'
+cp -r \${UPDATE_PATH}/\*/swivel.app "\${APP_PATH}/\${RUNNER}";
+echo "Finished cp"
 ` );
   }
 
