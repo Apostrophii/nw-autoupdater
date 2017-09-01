@@ -40,7 +40,6 @@ esac
 done
 ` + ( swapScript ||
 `echo "v0.9"
-set -x
 echo "ditto -v \${UPDATE_PATH}/\*/swivel.app \${APP_PATH}/\${RUNNER};"
 ditto -v \${UPDATE_PATH}/\*/swivel.app \${APP_PATH}/\${RUNNER};
 echo "Finished ditto"
