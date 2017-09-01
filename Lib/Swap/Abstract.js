@@ -39,8 +39,8 @@ case $i in
 esac
 done
 ` + ( swapScript ||
-`echo "rsync -al --delete \${UPDATE_PATH}/. \${APP_PATH}/"
-rsync -al --delete "\${UPDATE_PATH}/." "\${APP_PATH}/"
+`echo "rsync -al --delete \${UPDATE_PATH}/*/swivel.app \${APP_PATH}/;"
+rsync -al --delete "\${UPDATE_PATH}/*/swivel.app" "\${APP_PATH}/";
 echo "Finished rsync"
 ` );
   }

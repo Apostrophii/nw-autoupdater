@@ -19,7 +19,7 @@ const IS_WIN = /^win/.test( process.platform );
 
 // Directory where the app executable resides
 const EXEC_DIR = IS_OSX ?
-  dirname( process.execPath.match(/^([^\0]+?\.app)\//)[1] ) : dirname( process.execPath );
+  process.execPath.match(/^([^\0]+?\.app)\//)[1] : dirname( process.execPath );
 
 const PKG_NAME = "nw-autoupdater";
 const LOG_FILE = `${PKG_NAME}.log`;
