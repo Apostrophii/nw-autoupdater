@@ -60,7 +60,7 @@ async function launch( runnerPath, argv, cwd, logPath ){
       });
 
       child.stderr.on( "data", ( data ) => {
-        fs.writeSync( log, `ERROR: ${data}`, "utf-8" );
+        fs.writeSync( log, `DATA: ${data}`, "utf-8" );
       });
 
       child.on( "error", ( e ) => {
@@ -73,7 +73,7 @@ async function launch( runnerPath, argv, cwd, logPath ){
       });
 
       child.unref();
-      setTimeout( resolve, 5000 );
+      setTimeout( resolve, 500 );
    });
 }
 
