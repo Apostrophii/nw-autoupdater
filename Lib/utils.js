@@ -68,8 +68,12 @@ async function launch( runnerPath, argv, cwd, logPath ){
         reject( e );
       });
 
-       child.unref();
-       setTimeout( resolve, 50 );
+      child.on( "close", ( c ) => {
+        fs.writeSync( log, `CLOSED: ${c}`, "utf-8" );
+      });
+
+      child.unref();
+      setTimeout( resolve, 5000 );
    });
 }
 
