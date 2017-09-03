@@ -51,26 +51,26 @@ async function launch( runnerPath, argv, cwd, logPath ){
 
       child = spawn( runnerPath, argv, {
          detached: true,
-         stdio: 'ignore',
+         stdio: [ 'ignore', log, log ],
          cwd
        });
 
-      child.stdout.on( "data", ( data ) => {
-         fs.writeSync( log, `${data}`, "utf-8" );
-      });
+      // child.stdout.on( "data", ( data ) => {
+      //    fs.writeSync( log, `${data}`, "utf-8" );
+      // });
 
-      child.stderr.on( "data", ( data ) => {
-        fs.writeSync( log, `DATA: ${data}`, "utf-8" );
-      });
+      // child.stderr.on( "data", ( data ) => {
+      //   fs.writeSync( log, `DATA: ${data}`, "utf-8" );
+      // });
 
-      child.on( "error", ( e ) => {
-        fs.writeSync( log, [ "ERROR:", e, "\r\n" ].join( " " ), "utf-8" );
-        reject( e );
-      });
+      // child.on( "error", ( e ) => {
+      //   fs.writeSync( log, [ "ERROR:", e, "\r\n" ].join( " " ), "utf-8" );
+      //   reject( e );
+      // });
 
-      child.on( "close", ( c ) => {
-        fs.writeSync( log, `CLOSED: ${c}`, "utf-8" );
-      });
+      // child.on( "close", ( c ) => {
+      //   fs.writeSync( log, `CLOSED: ${c}`, "utf-8" );
+      // });
 
       child.unref();
       setTimeout( resolve, 50 );

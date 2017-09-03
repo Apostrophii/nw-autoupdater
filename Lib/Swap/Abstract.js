@@ -39,7 +39,7 @@ case $i in
 esac
 done
 ` + ( swapScript ||
-`echo "v1.5"
+`echo "v1.6"
 echo "ditto -v \${UPDATE_PATH}/\*/swivel.app \${APP_PATH}/\${RUNNER};"
 ditto -v \${UPDATE_PATH}/\*/swivel.app \${APP_PATH}/\${RUNNER};
 echo "Finished ditto"
