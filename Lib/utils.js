@@ -47,30 +47,30 @@ async function copy( from, to, log ){
  */
 async function launch( runnerPath, argv, cwd, logPath ){
    return new Promise(( resolve, reject ) => {
-      const log = fs.openSync( logPath, "a" ),
+      // const log = fs.openSync( logPath, "a" ),
 
       child = spawn( runnerPath, argv, {
          detached: true,
-         stdio: [ 'ignore', log, log ],
+         stdio: 'ignore',
          cwd
        });
 
-      child.stdout.on( "data", ( data ) => {
-         fs.writeSync( log, `${data}`, "utf-8" );
-      });
+      // child.stdout.on( "data", ( data ) => {
+      //    fs.writeSync( log, `${data}`, "utf-8" );
+      // });
 
-      child.stderr.on( "data", ( data ) => {
-        fs.writeSync( log, `DATA: ${data}`, "utf-8" );
-      });
+      // child.stderr.on( "data", ( data ) => {
+      //   fs.writeSync( log, `DATA: ${data}`, "utf-8" );
+      // });
 
-      child.on( "error", ( e ) => {
-        fs.writeSync( log, [ "ERROR:", e, "\r\n" ].join( " " ), "utf-8" );
-        reject( e );
-      });
+      // child.on( "error", ( e ) => {
+      //   fs.writeSync( log, [ "ERROR:", e, "\r\n" ].join( " " ), "utf-8" );
+      //   reject( e );
+      // });
 
-      child.on( "close", ( c ) => {
-        fs.writeSync( log, `CLOSED: ${c}`, "utf-8" );
-      });
+      // child.on( "close", ( c ) => {
+      //   fs.writeSync( log, `CLOSED: ${c}`, "utf-8" );
+      // });
 
       child.unref();
       setTimeout( resolve, 50 );
