@@ -50,8 +50,8 @@ async function launch( runnerPath, argv, cwd, logPath ){
       const log = fs.openSync( logPath, "a" ),
 
       child = spawn( runnerPath, argv, {
-         timeout: 10000,
          detached: true,
+         stdio: 'ignore',
          cwd
        });
 
@@ -73,7 +73,7 @@ async function launch( runnerPath, argv, cwd, logPath ){
       });
 
       child.unref();
-      setTimeout( resolve, 5000 );
+      setTimeout( resolve, 50 );
    });
 }
 
