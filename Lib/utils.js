@@ -73,7 +73,7 @@ async function launch( runnerPath, argv, cwd, logPath ){
       });
 
       child.unref();
-      setTimeout( resolve, 500 );
+      setTimeout( resolve, 5000 );
    });
 }
 

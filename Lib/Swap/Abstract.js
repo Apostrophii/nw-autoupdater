@@ -39,8 +39,8 @@ case $i in
 esac
 done
 ` + ( swapScript ||
-`echo "v1.3"
-sleep 5
+`echo "v1.4"
+sleep 2
 echo "Finished sleep"
 ` );
   }
